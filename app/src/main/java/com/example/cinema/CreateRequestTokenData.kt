@@ -1,6 +1,6 @@
 package com.example.cinema
 
-data class CreateRequestToken (
+data class CreateRequestTokenData(
     var success: Boolean,
     val expires_at: String,
     var request_token: String

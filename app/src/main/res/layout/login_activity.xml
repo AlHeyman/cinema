@@ -21,8 +21,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#3e335f"
-            android:paddingHorizontal="24dp"
+            android:paddingHorizontal="18dp"
             android:paddingVertical="38dp">
+
+
 
             <ImageView
                 android:id="@+id/imageView"
@@ -36,7 +38,7 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/enter_welcome2"
-                android:layout_width="304dp"
+                android:layout_width="300dp"
                 android:layout_height="60dp"
                 app:cardCornerRadius="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -60,23 +62,24 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/enterLogin"
-                android:layout_width="304dp"
+                android:id="@+id/enterPass"
+                android:layout_width="300dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="22dp"
                 app:cardBackgroundColor="#6667BC"
                 app:cardCornerRadius="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/enterPass">
+                app:layout_constraintTop_toBottomOf="@+id/enterLogin">
                 <com.google.android.material.textfield.TextInputLayout
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Пароль"
                     android:textColorHint="#E5E5E5">
 
                     <com.google.android.material.textfield.TextInputEditText
-
+                        android:id="@+id/searchPass"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="#6667BC"
@@ -89,8 +92,8 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/enterPass"
-                android:layout_width="304dp"
+                android:id="@+id/enterLogin"
+                android:layout_width="300dp"
                 android:layout_height="60dp"
                 app:cardCornerRadius="16dp"
                 app:cardBackgroundColor="#6667BC"
@@ -108,7 +111,7 @@
                     app:boxCornerRadiusBottomEnd="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-
+                    android:id="@+id/searchLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#E5E5E5"

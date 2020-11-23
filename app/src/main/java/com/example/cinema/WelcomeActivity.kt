@@ -10,9 +10,7 @@ class WelcomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.welcome_activity)
 
-        R
-
-        enter_welcome.setOnClickListener { startActivity(Intent(this,LoginActivity::class.java)) }
+        enter_welcome.setOnClickListener { startActivity(Intent(this, LoginActivity::class.java)) }
     }
 
 }
