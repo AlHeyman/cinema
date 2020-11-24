@@ -14,15 +14,10 @@ interface AvtorizeApi {
 
     @POST("authentication/token/validate_with_login")
     fun loginAutorizeApi(
-        @Query("api_key") api_key: String = API_KEY,
-        @Body user: LoginAutData
-    ): Call<CreateRequestTokenData>
+        @Query("api_key") api_key: String , @Body user: LoginAutData): Call<CreateRequestTokenData>
 
     @POST("authentication/session/new")
-    fun sessionNew(
-        @Query("api_key") api_key: String = API_KEY,
-        @Body user: RecvestToken
-    ): Call<SessionNewData>
+    fun sessionNew(@Query("api_key") api_key: String , @Body token: RecvestToken): Call<SessionNewData>
 }
 
 

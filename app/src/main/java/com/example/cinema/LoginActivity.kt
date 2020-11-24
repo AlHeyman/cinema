@@ -17,62 +17,95 @@ import retrofit2.converter.gson.GsonConverterFactory
 class LoginActivity : AppCompatActivity() {
 
 
-    private lateinit var token: String
+    //private lateinit var token: String
 
 
     val retrofit = Retrofit.Builder().addConverterFactory(GsonConverterFactory.create())
-        .baseUrl("https://www.themoviedb.org").build()
+        .baseUrl("https://api.themoviedb.org/3/").build()
+
 
     val logClient = retrofit.create(AvtorizeApi::class.java)
+
+    var a = ""
+    var b = ""
+
+    var login = ""
+    var pass = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_activity)
 
 
-        enter_welcome2.setOnClickListener {
-            startActivity(
-                Intent(
-                    this,
-                    ProfileActivity::class.java
-                )
-            )
+
+        searchLogin.addTextChangedListener { editableText: Editable? ->
+            if (editableText != null) {
+                a = editableText.toString()
+            }
         }
+        searchPass.addTextChangedListener {
+            if (it != null) {
+                b = it.toString()
+            }
+        }
+
+
+
+        enter_welcome2.setOnClickListener {
+            login = a
+            pass = b
+            firstToken(login,pass)
+        }
+
+    }
+
+    private fun firstToken(login:String,pass:String) {
 
         logClient.createToken().enqueue(object : Callback<CreateRequestTokenData> {
             override fun onFailure(call: Call<CreateRequestTokenData>, t: Throwable) {
                 Log.e("login_activity", "Error!")
             }
-
             override fun onResponse(
                 call: Call<CreateRequestTokenData>,
                 response: Response<CreateRequestTokenData>
             ) {
+
                 val item = response.body()?.request_token
                 if (item != null) {
 
-                    logClien(LoginAutData("WSRtest", "qwerty123", item))
+                    logClien(LoginAutData(login, pass, item!!))
+
                 }
             }
-            //WSRtest qwerty123
         })
-        searchLogin.addTextChangedListener { editableText: Editable? ->
-            if (editableText != null) {
-                var login: String = editableText.toString()
-            }
-        }
-        searchPass.addTextChangedListener {
-            if (it != null) {
-                var pass: String = it.toString()
-            }
-        }
-
-
     }
 
-    private fun recvTocen() {
-        var recvestToken = RecvestToken(request_token = "")// token)
-        logClient.sessionNew(API_KEY, recvestToken).enqueue(object : Callback<SessionNewData> {
+    private fun logClien(loginAutData: LoginAutData) {
+
+
+        logClient.loginAutorizeApi(API_KEY, loginAutData)
+            .enqueue(object : Callback<CreateRequestTokenData> {
+                override fun onFailure(call: Call<CreateRequestTokenData>, t: Throwable) {
+                }
+
+                override fun onResponse(
+                    call: Call<CreateRequestTokenData>,
+                    response: Response<CreateRequestTokenData>
+                ) {
+                    val item = response.body()?.request_token
+                    if (item != null) {
+                        var tok = RecvestToken(item)
+                        recvTocen(tok)
+                    }
+                }
+            }
+            )
+    }
+
+
+    private fun recvTocen(token: RecvestToken) {
+
+        logClient.sessionNew(API_KEY, token).enqueue(object : Callback<SessionNewData> {
             override fun onFailure(call: Call<SessionNewData>, t: Throwable) {
             }
 
@@ -81,40 +114,13 @@ class LoginActivity : AppCompatActivity() {
                 response: Response<SessionNewData>
             ) {
 
-                val item = response.body()
-                if (item != null) {
+                if (response.body() != null) {
 
+                    SessionId.id = response.body()!!.session_id
+                   startActivity(Intent(this@LoginActivity, ProfileActivity::class.java))
                 }
             }
 
         })
     }
-
-    private fun logClien(loginAutData: LoginAutData) {
-       var loginAutData = LoginAutData(password="", username = "", request_token = "")//token)
-
-        logClient.loginAutorizeApi(API_KEY, loginAutData)
-            .enqueue(object : Callback<CreateRequestTokenData> {
-
-                override fun onFailure(call: Call<CreateRequestTokenData>, t: Throwable) {
-                }
-
-                override fun onResponse(
-                    call: Call<CreateRequestTokenData>,
-                    response: Response<CreateRequestTokenData>
-                ) {
-                    val item = response.body()
-                    if (item != null) {
-
-                        token = item.request_token
-
-                    }
-                }
-                //  var sessionNewData = SessionNewData (success , ession_id = "")
-
-
-            }
-            )
-    }
-
 }
