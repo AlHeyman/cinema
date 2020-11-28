@@ -38,22 +38,25 @@ class LoginActivity : AppCompatActivity() {
 
 
 
-        searchLogin.addTextChangedListener { editableText: Editable? ->
-            if (editableText != null) {
-                a = editableText.toString()
-            }
-        }
-        searchPass.addTextChangedListener {
-            if (it != null) {
-                b = it.toString()
-            }
-        }
+//        searchLogin.addTextChangedListener { editableText: Editable? ->
+//            if (editableText != null) {
+//                a = editableText.toString()
+//            }
+//        }
+//        searchPass.addTextChangedListener {
+//            if (it != null) {
+//                b = it.toString()
+//            }
+//        }
 
 
 
         enter_welcome2.setOnClickListener {
-            login = a
-            pass = b
+//            login = a
+//            pass = b
+            login = "WSRtest"
+            pass = "qwerty123"
+
             firstToken(login,pass)
         }
 
@@ -107,6 +110,7 @@ class LoginActivity : AppCompatActivity() {
 
         logClient.sessionNew(API_KEY, token).enqueue(object : Callback<SessionNewData> {
             override fun onFailure(call: Call<SessionNewData>, t: Throwable) {
+                println()
             }
 
             override fun onResponse(
@@ -115,7 +119,6 @@ class LoginActivity : AppCompatActivity() {
             ) {
 
                 if (response.body() != null) {
-
                     SessionId.id = response.body()!!.session_id
                    startActivity(Intent(this@LoginActivity, ProfileActivity::class.java))
                 }

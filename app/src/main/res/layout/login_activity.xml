@@ -25,14 +25,16 @@
             android:paddingVertical="38dp">
 
 
-            <Button
-                android:id="@+id/testButton"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                app:layout_constraintBottom_toTopOf="@+id/enter_welcome2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/enterPass" />
+<!--            <Button-->
+<!--                android:id="@+id/testButton"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="50dp"-->
+<!--                app:layout_constraintBottom_toTopOf="@+id/enter_welcome2"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.777"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/enterPass"-->
+<!--                app:layout_constraintVertical_bias="0.424" />-->
 
             <ImageView
                 android:id="@+id/imageView"
