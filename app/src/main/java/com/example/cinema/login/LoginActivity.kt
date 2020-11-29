@@ -1,15 +1,14 @@
-package com.example.cinema
+package com.example.cinema.login
 
 import android.content.Intent
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import android.os.Bundle
-import android.text.Editable
 import android.util.Log
 
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.addTextChangedListener
+import com.example.cinema.*
 import kotlinx.android.synthetic.main.login_activity.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

@@ -1,4 +1,4 @@
-package com.example.cinema
+package com.example.cinema.login
 
 data class LoginAutData(
     var username : String,

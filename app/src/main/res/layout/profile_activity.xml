@@ -102,7 +102,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/dult" />
 
             <TextView
-                android:id="@+id/lang"
+                android:id="@+id/langu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -139,7 +139,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.137"
                 app:layout_constraintStart_toEndOf="@+id/textView4"
-                app:layout_constraintTop_toBottomOf="@+id/lang" />
+                app:layout_constraintTop_toBottomOf="@+id/langu" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,8 +20,8 @@ class FilmAdapter(var list: MutableList<RaterMOvData>): RecyclerView.Adapter<Fil
 
     override fun onBindViewHolder(holder: RvViev, position: Int) {
        val film = list[position]
-        holder.itemView.date_film.text=film.release_date.toString()
-        holder.itemView.title_film.text=film.original_title.toString()
+        holder.itemView.date_film.text=film.release_date
+        holder.itemView.title_film.text=film.original_title
 
     }
 

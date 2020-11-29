@@ -3,6 +3,7 @@ package com.example.cinema
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.cinema.login.LoginActivity
 import kotlinx.android.synthetic.main.welcome_activity.*
 
 class WelcomeActivity : AppCompatActivity() {

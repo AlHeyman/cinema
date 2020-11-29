@@ -6,6 +6,5 @@ data class GetAccountDetals(
     // val username : String,
     val include_adult: Boolean,
     val iso_3166_1: String,
-    val iso_639_1: String,
-    val id: Int
+    val iso_639_1: String, val id: Int
 )
