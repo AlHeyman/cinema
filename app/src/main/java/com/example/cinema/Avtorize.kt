@@ -32,8 +32,8 @@ interface AvtorizeApi {
 
     @GET("account/{account_id}/rated/movies")
     fun raterMovie(
-        @Path("account_id") account_id: Int,
-        @Query("api_key") api_key: String = API_KEY,
+       @Path("account_id") account_id: Int,
+        @Query("api_key") api_key: String,
         @Query("session_id") session_id: String
 
 
